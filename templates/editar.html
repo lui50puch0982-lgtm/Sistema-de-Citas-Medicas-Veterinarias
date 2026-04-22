@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-warning text-dark">
+                <h4 class="mb-0">Modificar Cita</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre de la Mascota</label>
+                        <input type="text" name="mascota" class="form-control" value="{{ cita['mascota'] }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre del Propietario</label>
+                        <input type="text" name="propietario" class="form-control" value="{{ cita['propietario'] }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Especie</label>
+                        <select name="especie" class="form-select">
+                            <option value="Perro" {% if cita['especie'] == 'Perro' %}selected{% endif %}>Perro</option>
+                            <option value="Gato" {% if cita['especie'] == 'Gato' %}selected{% endif %}>Gato</option>
+                            <option value="Ave" {% if cita['especie'] == 'Ave' %}selected{% endif %}>Ave</option>
+                            <option value="Otro" {% if cita['especie'] == 'Otro' %}selected{% endif %}>Otro</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Fecha de la Cita</label>
+                        <input type="date" name="fecha" class="form-control" value="{{ cita['fecha'] }}" required>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Actualizar Datos</button>
+                        <a href="/" class="btn btn-secondary">Volver</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

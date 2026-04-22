@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">Agenda de Citas</h2>
+<div class="row">
+    {% for cita in citas %}
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-primary">{{ cita['mascota'] }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ cita['especie'] }}</h6>
+                <p class="card-text">
+                    <strong>Dueño:</strong> {{ cita['propietario'] }} <br>
+                    <strong>Fecha:</strong> {{ cita['fecha'] }}
+                </p>
+                <a href="{{ url_for('editar', id=cita['id']) }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{{ url_for('cancelar', id=cita['id']) }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Cancelar cita?')">Cancelar</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
