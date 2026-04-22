@@ -1,75 +1,70 @@
-
 :root {
     --primary-color: #0d6efd;
-    --bg-body: #f4f7f6;
-    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    --card-bg: rgba(255, 255, 255, 0.9);
 }
 
 body {
-    background-color: var(--bg-body);
-    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
-    color: #333;
+    /* Uso del enlace directo para el fondo */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                      url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1964&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    margin: 0;
 }
 
+h2, .display-6 {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    font-weight: 700;
+}
+
+p.text-muted {
+    color: #e0e0e0 !important;
+}
 
 .card-cita {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
     border: none;
-    border-radius: 1.25rem; 
+    border-radius: 20px;
     transition: all 0.3s ease;
-    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeInCard 0.4s ease-out forwards;
 }
-
 
 .card-cita:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-
-.card-cita .card-title {
+.card-title {
     color: var(--primary-color);
-    letter-spacing: -0.5px;
 }
-
 
 .badge-especie {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 0.5em 1em;
     border-radius: 50px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
 }
 
 .btn {
-    border-radius: 0.75rem;
+    border-radius: 12px;
     font-weight: 600;
-    padding: 0.5rem 1.25rem;
-    transition: all 0.2s;
+    transition: transform 0.2s;
 }
 
-.btn-warning {
-    background-color: #ffca2c;
-    border: none;
-    color: #856404;
-}
-
-.btn-danger {
-    background-color: #ff4d4d;
-    border: none;
-}
-
-/* 6. Animación de entrada para que la lista no aparezca de golpe */
-@keyframes fadeInUp {
+@keyframes fadeInCard {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: scale(0.9);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
     }
-}
-
-.card-cita {
-    animation: fadeInUp 0.5s ease backwards;
 }
