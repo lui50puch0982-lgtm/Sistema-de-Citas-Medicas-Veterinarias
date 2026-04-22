@@ -1,17 +1,16 @@
 :root {
     --primary-color: #0d6efd;
-    --card-bg: rgba(255, 255, 255, 0.9);
+    --success-color: #198754;
+    --card-bg: rgba(255, 255, 255, 0.95);
 }
 
 body {
-    /* Uso del enlace directo para el fondo */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                       url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1964&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
     margin: 0;
 }
@@ -22,49 +21,41 @@ h2, .display-6 {
     font-weight: 700;
 }
 
-p.text-muted {
-    color: #e0e0e0 !important;
-}
-
-.card-cita {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
+.card {
+    background-color: var(--card-bg);
     border: none;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    animation: fadeInCard 0.4s ease-out forwards;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in;
 }
 
-.card-cita:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+.card-header {
+    background: linear-gradient(45deg, var(--primary-color), #6ea8fe) !important;
+    color: white !important;
+    border: none;
+    padding: 1.25rem !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
 }
 
-.card-title {
-    color: var(--primary-color);
-}
-
-.badge-especie {
-    border-radius: 50px;
-    padding: 0.5rem 1rem;
+.form-label {
     font-weight: 600;
+    color: #444;
+}
+
+.form-control, .form-select {
+    border-radius: 10px;
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+    border-color: var(--primary-color);
 }
 
 .btn {
-    border-radius: 12px;
-    font-weight: 600;
-    transition: transform 0.2s;
-}
-
-@keyframes fadeInCard {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+    border-radius: 10px;
